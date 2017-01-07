@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_ACCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccCostSharingSequence">
+          <Key>
+            <PropertyRef Name="chYM" />
+            <PropertyRef Name="chHospital" />
+            <PropertyRef Name="chCostToShare" />
+          </Key>
+          <Property Name="chYM" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="chHospital" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="intSharingOrder" Type="int" Nullable="false" />
+          <Property Name="chCostToShare" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="nvCostName" Type="nvarchar" MaxLength="20" />
+          <Property Name="chAccNo" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="nvAccName" Type="nvarchar" MaxLength="20" />
+          <Property Name="chSharingMethodType" Type="char" MaxLength="1" />
+          <Property Name="nvSharingMethodName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="nvDataSource" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvFomula" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvFitDepartment" Type="nvarchar" MaxLength="20" />
+          <Property Name="nvComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="chDCFlag" Type="char" MaxLength="1" />
+          <Property Name="nvOriStatus" Type="nvarchar" MaxLength="10" />
+          <Property Name="nvAdjStatus" Type="nvarchar" MaxLength="10" />
+          <Property Name="sdInputTime" Type="smalldatetime" />
+          <Property Name="vcInputID" Type="varchar" MaxLength="30" />
+          <Property Name="vcComeFrom" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AccSharingPercent">
+          <Key>
+            <PropertyRef Name="chYM" />
+            <PropertyRef Name="chHospital" />
+            <PropertyRef Name="nvSharingMethod" />
+            <PropertyRef Name="chCostID" />
+            <PropertyRef Name="chShareToSecNo" />
+            <PropertyRef Name="chShareToCostID" />
+          </Key>
+          <Property Name="chYM" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="chHospital" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="nvSharingMethod" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="chCostID" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="nvCostName" Type="nvarchar" MaxLength="50" />
+          <Property Name="chShareToSecNo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="nvShareToSecName" Type="nvarchar" MaxLength="50" />
+          <Property Name="chShareToCostID" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="nvShareToCostName" Type="nvarchar" MaxLength="50" />
+          <Property Name="deValue" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+          <Property Name="deValueOld" Type="decimal" Precision="14" Scale="2" />
+          <Property Name="dePercent" Type="decimal" Precision="6" Scale="4" Nullable="false" />
+          <Property Name="dePercentOld" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="sdInputTime" Type="smalldatetime" />
+          <Property Name="chInputID" Type="char" MaxLength="10" />
+          <Property Name="chComeFrom" Type="char" MaxLength="30" />
+        </EntityType>
+        <EntityContainer Name="DB_ACCModelStoreContainer">
+          <EntitySet Name="AccCostSharingSequence" EntityType="Self.AccCostSharingSequence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccSharingPercent" EntityType="Self.AccSharingPercent" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_ACCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccCostSharingSequence">
+          <Key>
+            <PropertyRef Name="chYM" />
+            <PropertyRef Name="chHospital" />
+            <PropertyRef Name="chCostToShare" />
+          </Key>
+          <Property Name="chYM" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="chHospital" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="intSharingOrder" Type="Int32" Nullable="false" />
+          <Property Name="chCostToShare" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvCostName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="chAccNo" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvAccName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="chSharingMethodType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="nvSharingMethodName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nvDataSource" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nvFomula" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nvFitDepartment" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="nvComment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="chDCFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="nvOriStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nvAdjStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="sdInputTime" Type="DateTime" Precision="0" />
+          <Property Name="vcInputID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="vcComeFrom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AccSharingPercent" Relationship="DB_ACCModel.AccCostSharingSequenceAccSharingPercent" FromRole="AccCostSharingSequence" ToRole="AccSharingPercent" />
+        </EntityType>
+        <EntityType Name="AccSharingPercent">
+          <Key>
+            <PropertyRef Name="chYM" />
+            <PropertyRef Name="chHospital" />
+            <PropertyRef Name="nvSharingMethod" />
+            <PropertyRef Name="chCostID" />
+            <PropertyRef Name="chShareToSecNo" />
+            <PropertyRef Name="chShareToCostID" />
+          </Key>
+          <Property Name="chYM" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="chHospital" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvSharingMethod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="chCostID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvCostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chShareToSecNo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvShareToSecName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chShareToCostID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nvShareToCostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deValue" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+          <Property Name="deValueOld" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="dePercent" Type="Decimal" Precision="6" Scale="4" Nullable="false" />
+          <Property Name="dePercentOld" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="sdInputTime" Type="DateTime" Precision="0" />
+          <Property Name="chInputID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="chComeFrom" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="AccCostSharingSequence" Relationship="DB_ACCModel.AccCostSharingSequenceAccSharingPercent" FromRole="AccSharingPercent" ToRole="AccCostSharingSequence" />
+        </EntityType>
+        <EntityContainer Name="DB_ACCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccCostSharingSequence" EntityType="Self.AccCostSharingSequence" />
+          <EntitySet Name="AccSharingPercent" EntityType="Self.AccSharingPercent" />
+          <AssociationSet Name="AccCostSharingSequenceAccSharingPercent" Association="DB_ACCModel.AccCostSharingSequenceAccSharingPercent">
+            <End Role="AccCostSharingSequence" EntitySet="AccCostSharingSequence" />
+            <End Role="AccSharingPercent" EntitySet="AccSharingPercent" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="AccCostSharingSequenceAccSharingPercent">
+          <End Type="DB_ACCModel.AccCostSharingSequence" Role="AccCostSharingSequence" Multiplicity="1" />
+          <End Type="DB_ACCModel.AccSharingPercent" Role="AccSharingPercent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccCostSharingSequence">
+              <PropertyRef Name="chYM" />
+              <PropertyRef Name="chHospital" />
+              <PropertyRef Name="chCostToShare" />
+            </Principal>
+            <Dependent Role="AccSharingPercent">
+              <PropertyRef Name="chYM" />
+              <PropertyRef Name="chHospital" />
+              <PropertyRef Name="chCostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_ACCModelStoreContainer" CdmEntityContainer="DB_ACCEntities">
+          <EntitySetMapping Name="AccCostSharingSequence">
+            <EntityTypeMapping TypeName="DB_ACCModel.AccCostSharingSequence">
+              <MappingFragment StoreEntitySet="AccCostSharingSequence">
+                <ScalarProperty Name="chYM" ColumnName="chYM" />
+                <ScalarProperty Name="chHospital" ColumnName="chHospital" />
+                <ScalarProperty Name="intSharingOrder" ColumnName="intSharingOrder" />
+                <ScalarProperty Name="chCostToShare" ColumnName="chCostToShare" />
+                <ScalarProperty Name="nvCostName" ColumnName="nvCostName" />
+                <ScalarProperty Name="chAccNo" ColumnName="chAccNo" />
+                <ScalarProperty Name="nvAccName" ColumnName="nvAccName" />
+                <ScalarProperty Name="chSharingMethodType" ColumnName="chSharingMethodType" />
+                <ScalarProperty Name="nvSharingMethodName" ColumnName="nvSharingMethodName" />
+                <ScalarProperty Name="nvDataSource" ColumnName="nvDataSource" />
+                <ScalarProperty Name="nvFomula" ColumnName="nvFomula" />
+                <ScalarProperty Name="nvFitDepartment" ColumnName="nvFitDepartment" />
+                <ScalarProperty Name="nvComment" ColumnName="nvComment" />
+                <ScalarProperty Name="chDCFlag" ColumnName="chDCFlag" />
+                <ScalarProperty Name="nvOriStatus" ColumnName="nvOriStatus" />
+                <ScalarProperty Name="nvAdjStatus" ColumnName="nvAdjStatus" />
+                <ScalarProperty Name="sdInputTime" ColumnName="sdInputTime" />
+                <ScalarProperty Name="vcInputID" ColumnName="vcInputID" />
+                <ScalarProperty Name="vcComeFrom" ColumnName="vcComeFrom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccSharingPercent">
+            <EntityTypeMapping TypeName="DB_ACCModel.AccSharingPercent">
+              <MappingFragment StoreEntitySet="AccSharingPercent">
+                <ScalarProperty Name="chYM" ColumnName="chYM" />
+                <ScalarProperty Name="chHospital" ColumnName="chHospital" />
+                <ScalarProperty Name="nvSharingMethod" ColumnName="nvSharingMethod" />
+                <ScalarProperty Name="chCostID" ColumnName="chCostID" />
+                <ScalarProperty Name="nvCostName" ColumnName="nvCostName" />
+                <ScalarProperty Name="chShareToSecNo" ColumnName="chShareToSecNo" />
+                <ScalarProperty Name="nvShareToSecName" ColumnName="nvShareToSecName" />
+                <ScalarProperty Name="chShareToCostID" ColumnName="chShareToCostID" />
+                <ScalarProperty Name="nvShareToCostName" ColumnName="nvShareToCostName" />
+                <ScalarProperty Name="deValue" ColumnName="deValue" />
+                <ScalarProperty Name="deValueOld" ColumnName="deValueOld" />
+                <ScalarProperty Name="dePercent" ColumnName="dePercent" />
+                <ScalarProperty Name="dePercentOld" ColumnName="dePercentOld" />
+                <ScalarProperty Name="sdInputTime" ColumnName="sdInputTime" />
+                <ScalarProperty Name="chInputID" ColumnName="chInputID" />
+                <ScalarProperty Name="chComeFrom" ColumnName="chComeFrom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
